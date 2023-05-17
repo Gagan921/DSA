@@ -1,0 +1,13 @@
+class Solution {
+    public boolean checkPossibility(int[] nums) {
+        int cnt = 0; // count of number of decreasing pairs
+        for(int i = 1; i < nums.length && cnt <= 1; i++) {
+            if(nums[i-1] > nums[i]) { // if decreasing pair found
+                cnt++; // increment count
+                if(i-2 < 0 || nums[i-2] <= nums[i]) nums[i-1] = nums[i]; // if previous element is smaller or equal to current element, change current element to previous element
+                else nums[i] = nums[i-1]; // else change previous element to current element
+            }
+        }
+        return cnt <= 1; // return true if count is less than or equal to 1
+    }
+}
