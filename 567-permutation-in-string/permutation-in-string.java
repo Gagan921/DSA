@@ -8,11 +8,11 @@ public class Solution {
             s1map[s1.charAt(i) - 'a']++;
             s2map[s2.charAt(i) - 'a']++;
         }
-        for (int i = 0; i < s2.length() - s1.length(); i++) {
+        for (int i = s1.length(); i < s2.length(); i++) {
             if (matches(s1map, s2map))
                 return true;
-            s2map[s2.charAt(i + s1.length()) - 'a']++;
-            s2map[s2.charAt(i) - 'a']--;
+            s2map[s2.charAt(i) - 'a']++;
+            s2map[s2.charAt(i-s1.length()) - 'a']--;
         }
         return matches(s1map, s2map);
     }
