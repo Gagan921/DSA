@@ -17,13 +17,14 @@ class Solution {
     public boolean isSymmetric(TreeNode root) {
         return isSymmetrics(root, root);
     }
-    public static boolean isSymmetrics(TreeNode c1, TreeNode c2){
-        if(c1 ==null && c2==null){
+    public static boolean isSymmetrics(TreeNode r1, TreeNode r2){
+        if(r1==null && r2==null){
             return true;
         }
-        if(c1 ==null || c2==null){
+        if(r1==null || r2==null){
             return false;
         }
-        return c1.val==c2.val && isSymmetrics(c1.left, c2.right) && isSymmetrics(c1.right, c2.left);
+        return r1.val ==r2.val && (isSymmetrics(r1.left, r2.right) && isSymmetrics(r1.right, r2.left));
     }
+    
 }
